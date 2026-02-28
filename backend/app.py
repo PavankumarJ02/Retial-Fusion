@@ -1,4 +1,16 @@
-"""
+
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Backend running"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
+    '''"""
 Retail Fusion Backend - FULL FIXED VERSION
 """
 
@@ -152,3 +164,4 @@ def dashboard():
 if __name__=="__main__":
     Thread(target=simulate_transactions,daemon=True).start()
     app.run(debug=True,port=5000)
+'''
