@@ -11,6 +11,7 @@ import requests
 import random
 import time
 from threading import Thread
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -277,4 +278,5 @@ if __name__=="__main__":
         daemon=True
     ).start()
 
-    app.run(debug=True,port=5000)
+    
+app.run(host="0.0.0.0", port=int(os.environ.get("PORT",10000)))
