@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("https://retail-fusion-backend.onrender.com/api/dashboard")
+      fetch("http://localhost:5000/api/dashboard")
         .then(res => res.json())
         .then(data => setDashboardData(data))
         .catch(err => console.error("Fetch error:", err));
