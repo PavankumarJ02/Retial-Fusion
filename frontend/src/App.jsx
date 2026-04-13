@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:5000/api/dashboard")
+      fetch("http://172.20.38.192:10000/api/dashboard")
         .then(res => res.json())
         .then(data => setDashboardData(data))
         .catch(err => console.error("Fetch error:", err));

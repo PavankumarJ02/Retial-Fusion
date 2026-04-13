@@ -13,7 +13,7 @@ export default function ReorderPanel({ suggestions = [] }) {
     try {
       setLoadingSku(sku);
 
-      const res = await fetch("http://127.0.0.1:5000/api/place-order", {
+      const res = await fetch("http://172.20.38.192:10000/api/place-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -129,29 +129,28 @@ export default function ReorderPanel({ suggestions = [] }) {
 
                 {/* BUTTON */}
                 <button
-  disabled={isLoading || suggestion.suggested_quantity === 0}
-  onClick={() =>
-    handlePlaceOrder(suggestion.sku, suggestion.suggested_quantity)
-  }
-  className={`w-full py-2 rounded font-bold transition
-    ${
-      suggestion.suggested_quantity === 0
-        ? "bg-slate-700 cursor-not-allowed text-slate-400"
-        : isSuccess
-        ? "bg-emerald-600"
-        : "bg-cyan-600 hover:bg-cyan-700"
-    }
+                  disabled={isLoading || suggestion.suggested_quantity === 0}
+                  onClick={() =>
+                    handlePlaceOrder(suggestion.sku, suggestion.suggested_quantity)
+                  }
+                  className={`w-full py-2 rounded font-bold transition
+    ${suggestion.suggested_quantity === 0
+                      ? "bg-slate-700 cursor-not-allowed text-slate-400"
+                      : isSuccess
+                        ? "bg-emerald-600"
+                        : "bg-cyan-600 hover:bg-cyan-700"
+                    }
     ${isLoading ? "opacity-50 cursor-not-allowed" : ""}
   `}
->
-  {suggestion.suggested_quantity === 0
-    ? "Stock Healthy"
-    : isLoading
-    ? "Placing Order..."
-    : isSuccess
-    ? "✅ Ordered"
-    : "Place Order"}
-</button>
+                >
+                  {suggestion.suggested_quantity === 0
+                    ? "Stock Healthy"
+                    : isLoading
+                      ? "Placing Order..."
+                      : isSuccess
+                        ? "✅ Ordered"
+                        : "Place Order"}
+                </button>
 
               </div>
             </div>
